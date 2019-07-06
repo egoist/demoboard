@@ -1,0 +1,83 @@
+{
+  "name": "demoboard",
+  "version": "0.0.5",
+  "description": "Demonstrating your React/Vue components with ease.",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "npm run lint",
+    "lint": "xo",
+    "demo": "poi --config demo/poi.config.js -so",
+    "build:demo": "poi --config demo/poi.config.js --prod",
+    "toc": "markdown-toc -i README.md",
+    "build": "bili",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "url": "egoist/demoboard",
+    "type": "git"
+  },
+  "author": "egoist<0x142857@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/core": "^10.0.14",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1"
+  },
+  "devDependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.14",
+    "bili": "^4.8.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-rem": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.14.2",
+    "husky": "^1.0.0-rc.13",
+    "lint-staged": "^7.2.0",
+    "markdown-toc": "^1.2.0",
+    "poi": "^12.7.1-canary.585.f015dbf.0",
+    "postcss-preset-env": "^6.6.0",
+    "prettier": "^1.15.2",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue-template-compiler": "^2.6.10",
+    "xo": "^0.23.0"
+  },
+  "xo": {
+    "extends": [
+      "rem",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "envs": [
+      "browser"
+    ],
+    "rules": {
+      "unicorn/filename-case": "off",
+      "react/prop-types": "off",
+      "react/display-name": "off"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "xo --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "README.md": [
+      "markdown-toc -i",
+      "git add"
+    ]
+  }
+}
