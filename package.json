@@ -37,7 +37,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.14.2",
     "husky": "^1.0.0-rc.13",
-    "lint-staged": "^7.2.0",
+    "lint-staged": "^9.1.0",
     "markdown-toc": "^1.2.0",
     "poi": "^12.7.1-canary.585.f015dbf.0",
     "prettier": "^1.15.2",
