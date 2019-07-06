@@ -2,8 +2,6 @@
 
 [![NPM version](https://badgen.net/npm/v/demoboard)](https://npmjs.com/package/demoboard) [![NPM downloads](https://badgen.net/npm/dm/demoboard)](https://npmjs.com/package/demoboard) [![CircleCI](https://badgen.net/circleci/github/egoist/demoboard/master)](https://circleci.com/gh/egoist/demoboard/tree/master) [![donate](https://badgen.net/badge/support%20me/donate/ff69b4)](https://patreon.com/egoist) [![chat](https://badgen.net/badge/chat%20on/discord/7289DA)](https://chat.egoist.moe)
 
-_This project is at very early stage, please use with caution._
-
 ## Table of Contents
 
 <!-- toc -->
