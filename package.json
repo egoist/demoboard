@@ -40,7 +40,6 @@
     "lint-staged": "^7.2.0",
     "markdown-toc": "^1.2.0",
     "poi": "^12.7.1-canary.585.f015dbf.0",
-    "postcss-preset-env": "^6.6.0",
     "prettier": "^1.15.2",
     "rollup-plugin-vue": "^5.0.1",
     "vue-template-compiler": "^2.6.10",
