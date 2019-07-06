@@ -24,9 +24,11 @@ demoboard.section('Lists').add('Unordered List', {
   )
 })
 
-mount(demoboard, '#app', () => (
-  <div
-    className="markdown-body"
-    dangerouslySetInnerHTML={{ __html: readme }}
-  ></div>
-))
+mount(demoboard, '#app', {
+  readme: () => (
+    <div
+      className="markdown-body"
+      dangerouslySetInnerHTML={{ __html: readme }}
+    ></div>
+  )
+})

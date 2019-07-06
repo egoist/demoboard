@@ -49,14 +49,16 @@ function create(opts) {
   return new Demoboard(opts)
 }
 
-function mount(_boards, target, readme) {
+function mount(_boards, target, options) {
   const boards = [].concat(_boards)
 
   render(
     <Router>
       <Route
         path="*"
-        render={props => <App {...props} boards={boards} readme={readme} />}
+        render={props => (
+          <App {...props} boards={boards} options={options || {}} />
+        )}
       />
     </Router>,
     typeof target === 'string' ? document.querySelector(target) : target

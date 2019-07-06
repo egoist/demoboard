@@ -10,7 +10,7 @@
   "scripts": {
     "test": "npm run lint",
     "lint": "xo",
-    "demo": "poi --config demo/poi.config.js -so",
+    "demo": "poi --config demo/poi.config.js -s",
     "build:demo": "poi --config demo/poi.config.js --prod",
     "toc": "markdown-toc -i README.md",
     "build": "bili",

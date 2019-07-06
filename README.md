@@ -75,8 +75,6 @@ demoboard.section('Buttons').add('Primary Button', {
 
 ### Customize Homepage
 
-The third argument of `mount` can be an HTML string or a React component
-
 ```js
 import { create, mount } from 'demoboard'
 
@@ -86,8 +84,12 @@ const readme = `<h1>Hello</h1>`
 // Or
 // const readme = () => <h1>Hello</h1>
 
-mount(demoboard, '#app', readme)
+mount(demoboard, '#app', {
+  readme
+})
 ```
+
+`readme` can be an HTML string or a React component.
 
 ## Contributing
 
