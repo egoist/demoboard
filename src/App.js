@@ -3,7 +3,7 @@ import { Global, css } from '@emotion/core'
 import { Sidebar } from './Sidebar'
 import { Main } from './Main'
 
-export const App = ({ boards }) => {
+export const App = ({ boards, readme }) => {
   return (
     <div>
       <Global
@@ -27,7 +27,7 @@ export const App = ({ boards }) => {
         `}
       />
       <Sidebar boards={boards} />
-      <Main boards={boards} />
+      <Main boards={boards} readme={readme} />
     </div>
   )
 }

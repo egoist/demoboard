@@ -1,5 +1,8 @@
 import React from 'react'
+import 'highlight.js/styles/github.css'
+import 'github-markdown-css/github-markdown.css'
 import { create, mount } from '../src'
+import readme from '../README.md'
 
 const demoboard = create()
 
@@ -21,4 +24,9 @@ demoboard.section('Lists').add('Unordered List', {
   )
 })
 
-mount(demoboard, '#app')
+mount(demoboard, '#app', () => (
+  <div
+    className="markdown-body"
+    dangerouslySetInnerHTML={{ __html: readme }}
+  ></div>
+))

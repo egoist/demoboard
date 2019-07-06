@@ -3,10 +3,24 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import { css } from '@emotion/core'
 
-export const Main = withRouter(({ location, boards }) => {
+export const Main = withRouter(({ location, boards, readme }) => {
   const query = querystring.parse(location.search.slice(1))
   const item = findItem(boards, query)
-  return <div css={styles.main}>{item && <item.options.component />}</div>
+  if (item) {
+    return (
+      <div css={styles.main}>
+        <item.options.component />
+      </div>
+    )
+  }
+
+  const readmeComponent =
+    typeof readme === 'function' ? (
+      React.createElement(readme, null)
+    ) : (
+      <div dangerouslySetInnerHTML={{ __html: readme }}></div>
+    )
+  return <div css={styles.main}>{readmeComponent}</div>
 })
 
 const findItem = (boards, query) => {

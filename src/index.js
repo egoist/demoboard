@@ -45,18 +45,21 @@ class Section {
   }
 }
 
-function create() {
-  return new Demoboard()
+function create(opts) {
+  return new Demoboard(opts)
 }
 
-function mount(_boards, target) {
+function mount(_boards, target, readme) {
   const boards = [].concat(_boards)
 
   render(
     <Router>
-      <Route path="*" render={props => <App {...props} boards={boards} />} />
+      <Route
+        path="*"
+        render={props => <App {...props} boards={boards} readme={readme} />}
+      />
     </Router>,
-    document.querySelector(target)
+    typeof target === 'string' ? document.querySelector(target) : target
   )
 }
 

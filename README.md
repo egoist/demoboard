@@ -13,7 +13,7 @@ _This project is at very early stage, please use with caution._
 - [Guide](#guide)
   - [React Components](#react-components)
   - [Vue Components](#vue-components)
-- [API](#api)
+  - [Customize Homepage](#customize-homepage)
 - [Contributing](#contributing)
 - [Author](#author)
 
@@ -73,9 +73,21 @@ demoboard.section('Buttons').add('Primary Button', {
 })
 ```
 
-## API
+### Customize Homepage
 
-[TODO]
+The third argument of `mount` can be an HTML string or a React component
+
+```js
+import { create, mount } from 'demoboard'
+
+const demoboard = create()
+
+const readme = `<h1>Hello</h1>`
+// Or
+// const readme = () => <h1>Hello</h1>
+
+mount(demoboard, '#app', readme)
+```
 
 ## Contributing
 
