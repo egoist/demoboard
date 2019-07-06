@@ -62,7 +62,16 @@ It just works™.
 
 ### Vue Components
 
-[TODO]
+Just convert your Vue component into React component with [@egoist/vue-to-react](https://github.com/egoist/vue-to-react):
+
+```js
+import toReact from '@egoist/vue-to-react'
+import Button from './Button.vue'
+
+demoboard.section('Buttons').add('Primary Button', {
+  component: toReact(Button)
+})
+```
 
 ## API
 
