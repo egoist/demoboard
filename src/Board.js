@@ -15,12 +15,15 @@ export const Board = withRouter(({ board, location, keyword }) => {
       setClosedSections(closedSections.filter(sectionId => sectionId !== id))
     }
   }
+
   const checkKeyword = title => {
     if (!keyword) {
       return true
     }
+
     return title.toLowerCase().indexOf(keyword) > -1
   }
+
   return (
     <div css={styles.board}>
       {board.sections.map(section => {
