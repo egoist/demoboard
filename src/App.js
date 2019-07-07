@@ -6,7 +6,10 @@ import { useMedia } from './utils/useMedia'
 
 export const App = ({ boards, options }) => {
   // Show sidebar menu when the view port is at least 992px (tablet-landscape) wide
-  const [showMenu, setShowMenu] = useMedia('(min-width:992px)')
+  const [showMenu, setShowMenu] = useMedia(
+    '(min-width:992px)',
+    document.body.clientWidth >= 992
+  )
 
   return (
     <div>
