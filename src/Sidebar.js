@@ -3,8 +3,7 @@ import { css } from '@emotion/core'
 import { Link } from 'react-router-dom'
 import { Board } from './Board'
 
-export const Sidebar = ({ boards }) => {
-  const [showMenu, setShowMenu] = React.useState(false)
+export const Sidebar = ({ boards, showMenu, setShowMenu }) => {
   const [keyword, setKeyword] = React.useState('')
 
   const toggleMenu = () => {
@@ -59,7 +58,7 @@ export const Sidebar = ({ boards }) => {
         </div>
       </div>
       {showMenu && (
-        <div>
+        <div css={styles.menu}>
           <div css={styles.searchWrapper}>
             <input
               css={styles.search}
@@ -80,11 +79,25 @@ const styles = {
     background: var(--sidebar-bg);
   `,
   header: css`
-    height: 50px;
-    border-bottom: 1px solid #e2e2e2;
+    height: var(--header-height);
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     padding: 0 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--sidebar-bg);
+  `,
+  menu: css`
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
   `,
   headerLeft: css`
     display: flex;
@@ -94,7 +107,7 @@ const styles = {
       width: 1em;
       height: 1em;
       margin-right: 5px;
-      color: #b9b9b9;
+      color: #9a9898;
       cursor: pointer;
       transition: color 0.3s ease;
       &:hover {
@@ -114,7 +127,7 @@ const styles = {
     padding: 10px;
   `,
   search: css`
-    border: 1px solid #e2e2e2;
+    border: 1px solid var(--border-color);
     border-radius: 3px;
     width: 100%;
     padding: 8px 10px;

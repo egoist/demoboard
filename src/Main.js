@@ -3,12 +3,13 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import { css } from '@emotion/core'
 
-export const Main = withRouter(({ location, boards, readme }) => {
+export const Main = withRouter(props => {
+  const { location, boards, readme } = props
   const query = querystring.parse(location.search.slice(1))
   const item = findItem(boards, query)
   if (item) {
     return (
-      <div css={styles.main}>
+      <div css={styles.main(props)}>
         <item.options.component />
       </div>
     )
@@ -20,7 +21,8 @@ export const Main = withRouter(({ location, boards, readme }) => {
     ) : (
       <div dangerouslySetInnerHTML={{ __html: readme }}></div>
     )
-  return <div css={styles.main}>{readmeComponent}</div>
+
+  return <div css={styles.main(props)}>{readmeComponent}</div>
 })
 
 const findItem = (boards, query) => {
@@ -52,7 +54,9 @@ const findItem = (boards, query) => {
 }
 
 const styles = {
-  main: css`
+  main: props => css`
     padding: 10px;
+    margin-top: var(--header-height);
+    margin-left: ${props.showMenu ? `var(--sidebar-width)` : '0'};
   `
 }

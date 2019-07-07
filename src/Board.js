@@ -70,7 +70,11 @@ export const Board = withRouter(({ board, location, keyword }) => {
 const styles = {
   board: css`
     font-size: 0.9rem;
-    border-bottom: 1px solid #e2e2e2;
+    &:not(:last-child) {
+      border-bottom: 1px solid #e2e2e2;
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+    }
   `,
   sectionTitle: css`
     padding: 5px 10px;
@@ -97,16 +101,14 @@ const styles = {
     display: flex;
     padding: 5px 10px 5px 20px;
     text-decoration: none;
-    color: #696969;
     font-size: 0.875rem;
+    color: inherit;
 
     &:hover {
-      background-color: #f0f0f0;
-      color: inherit;
+      background-color: var(--menu-item-hover-bg);
     }
   `,
   itemTitleActive: css`
-    color: white !important;
-    background-color: rgb(30, 167, 253) !important;
+    background-color: var(--menu-item-active-bg);
   `
 }
