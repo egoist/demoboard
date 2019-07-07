@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import { Link } from 'react-router-dom'
 import { Board } from './Board'
 
-export const Sidebar = ({ boards, showMenu, setShowMenu }) => {
+export const Sidebar = ({ title, boards, showMenu, setShowMenu }) => {
   const [keyword, setKeyword] = React.useState('')
 
   const toggleMenu = () => {
@@ -53,7 +53,7 @@ export const Sidebar = ({ boards, showMenu, setShowMenu }) => {
           )}
 
           <h1 css={styles.siteTitle}>
-            <Link to="/">Demoboard</Link>
+            <Link to="/">{title || 'Demoboard'}</Link>
           </h1>
         </div>
       </div>

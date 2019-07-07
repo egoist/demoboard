@@ -12,6 +12,7 @@
   - [React Components](#react-components)
   - [Vue Components](#vue-components)
   - [Customize Homepage](#customize-homepage)
+  - [Customize Site Title](#customize-site-title)
 - [Contributing](#contributing)
 - [Author](#author)
 
@@ -88,6 +89,20 @@ mount(demoboard, '#app', {
 ```
 
 `readme` can be an HTML string or a React component.
+
+### Customize Site Title
+
+```js
+import { create, mount } from 'demoboard'
+
+const demoboard = create()
+
+mount(demoboard, '#app', {
+  title: 'My Demo'
+})
+```
+
+Then `title` defaults to `Demoboard`.
 
 ## Contributing
 

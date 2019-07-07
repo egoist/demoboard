@@ -34,7 +34,12 @@ export const App = ({ boards, options }) => {
           }
         `}
       />
-      <Sidebar boards={boards} showMenu={showMenu} setShowMenu={setShowMenu} />
+      <Sidebar
+        title={options.title}
+        boards={boards}
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
+      />
       <Main boards={boards} readme={options.readme} showMenu={showMenu} />
     </div>
   )
