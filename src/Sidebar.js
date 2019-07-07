@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
+import { Link } from 'react-router-dom'
 import { Board } from './Board'
 
 export const Sidebar = ({ boards }) => {
@@ -52,7 +53,9 @@ export const Sidebar = ({ boards }) => {
             </svg>
           )}
 
-          <h1 css={styles.siteTitle}>Demoboard</h1>
+          <h1 css={styles.siteTitle}>
+            <Link to="/">Demoboard</Link>
+          </h1>
         </div>
       </div>
       {showMenu && (
@@ -102,6 +105,10 @@ const styles = {
   siteTitle: css`
     font-weight: 500;
     font-size: 1.1rem;
+    & a {
+      color: inherit;
+      text-decoration: none;
+    }
   `,
   searchWrapper: css`
     padding: 10px;
