@@ -20,7 +20,7 @@ export const App = ({ boards, options }) => {
               'Helvetica Neue', sans-serif;
             --header-height: 50px;
             --border-color: #e2e2e2;
-            --menu-item-active-bg: #e6e6e6 !important;
+            --menu-item-active-bg: #e6e6e6;
             --menu-item-hover-bg: #f0f0f0;
           }
 

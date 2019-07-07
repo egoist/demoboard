@@ -109,6 +109,6 @@ const styles = {
     }
   `,
   itemTitleActive: css`
-    background-color: var(--menu-item-active-bg);
+    background-color: var(--menu-item-active-bg) !important;
   `
 }
