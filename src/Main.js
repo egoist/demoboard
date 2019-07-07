@@ -4,7 +4,14 @@ import { withRouter } from 'react-router'
 import { css } from '@emotion/core'
 
 export const Main = withRouter(props => {
-  const { location, boards, readme } = props
+  const { location, boards, readme, showMenu } = props
+
+  // Let's show stuff when `showMenu` is set
+  // To prevent from content flashing
+  if (showMenu === null) {
+    return null
+  }
+
   const query = querystring.parse(location.search.slice(1))
   const item = findItem(boards, query)
   if (item) {
