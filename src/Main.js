@@ -16,7 +16,7 @@ export const Main = withRouter(props => {
   const item = findItem(boards, query)
   if (item) {
     return (
-      <div css={styles.main(props)}>
+      <div css={styles.main}>
         <item.options.component />
       </div>
     )
@@ -29,7 +29,7 @@ export const Main = withRouter(props => {
       <div dangerouslySetInnerHTML={{ __html: readme }}></div>
     )
 
-  return <div css={styles.main(props)}>{readmeComponent}</div>
+  return <div css={styles.main}>{readmeComponent}</div>
 })
 
 const findItem = (boards, query) => {
@@ -61,9 +61,13 @@ const findItem = (boards, query) => {
 }
 
 const styles = {
-  main: props => css`
+  main: css`
     padding: 10px;
+    margin-left: 0;
     margin-top: var(--header-height);
-    margin-left: ${props.showMenu ? `var(--sidebar-width)` : '0'};
+    @media (min-width: 992px) {
+      margin-top: 0;
+      margin-left: var(--sidebar-width);
+    }
   `
 }
