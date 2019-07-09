@@ -29,32 +29,35 @@ export const Main = props => {
       <div dangerouslySetInnerHTML={{ __html: readme }}></div>
     )
 
-  return <div css={styles.main}>{readmeComponent}</div>
+  return (
+    <div css={styles.main}>
+      <div css={styles.readme}>{readmeComponent}</div>
+    </div>
+  )
 }
 
 const styles = {
   main: css`
-    height: 100%;
     position: absolute;
-    width: 100%;
-    top: 0;
+    top: var(--header-height);
     left: 0;
+    bottom: 0;
+    width: 100%;
     @media (min-width: 992px) {
       left: var(--sidebar-width);
-      width: calc(100% - var(--sidebar-width));
+      top: 0;
     }
   `,
   component: css`
     padding: 10px;
-    padding-top: var(--header-height);
     height: calc(100% - var(--panel-height));
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     overflow: auto;
-    @media (min-width: 992px) {
-      padding-top: 10px;
-    }
+  `,
+  readme: css`
+    padding: 10px;
   `
 }
