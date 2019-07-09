@@ -1,13 +1,18 @@
+import querystring from 'querystring'
 import React from 'react'
 import { Global, css } from '@emotion/core'
+import { withRouter } from 'react-router'
 import { Sidebar } from './Sidebar'
 import { Main } from './Main'
 import { useMedia } from './utils/useMedia'
+import { findItems } from './utils/findItem'
 
-export const App = ({ boards, options }) => {
+export const App = withRouter(({ boards, options, location }) => {
   // Show sidebar menu when the view port is at least 992px (tablet-landscape) wide
   const [isWide] = useMedia('(min-width:992px)', null)
   const [showMenu, setShowMenu] = useMedia('(min-width:992px)', null)
+  const query = querystring.parse(location.search.slice(1))
+  const currentItem = findItems(boards, query)
 
   return (
     <div>
@@ -20,9 +25,9 @@ export const App = ({ boards, options }) => {
               'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
               'Helvetica Neue', sans-serif;
             --header-height: 50px;
-            --border-color: #e2e2e2;
-            --menu-item-active-bg: #e6e6e6;
-            --menu-item-hover-bg: #f0f0f0;
+            --border-color: #e6e6e6;
+            --menu-item-active-color: #0088cc;
+            --panel-height: 300px;
           }
 
           * {
@@ -42,7 +47,11 @@ export const App = ({ boards, options }) => {
         setShowMenu={setShowMenu}
         isWide={isWide}
       />
-      <Main boards={boards} readme={options.readme} showMenu={showMenu} />
+      <Main
+        currentItem={currentItem}
+        readme={options.readme}
+        showMenu={showMenu}
+      />
     </div>
   )
-}
+})

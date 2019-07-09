@@ -13,6 +13,7 @@
   - [Vue Components](#vue-components)
   - [Customize Homepage](#customize-homepage)
   - [Customize Site Title](#customize-site-title)
+  - [Display Source Code](#display-source-code)
 - [Contributing](#contributing)
 - [Author](#author)
 
@@ -103,6 +104,18 @@ mount(demoboard, '#app', {
 ```
 
 Then `title` defaults to `Demoboard`.
+
+### Display Source Code
+
+```js
+demoboard.section('Buttons')
+  .add('Primary Button', {
+    component: () => <button>Primary Button</button>,
+    code: `<button>Primary Button</button>,`
+    // Optional, default to `js`
+    codeLang: 'js'
+  })
+```
 
 ## Contributing
 

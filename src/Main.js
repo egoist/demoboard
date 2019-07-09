@@ -1,10 +1,9 @@
-import querystring from 'querystring'
 import React from 'react'
-import { withRouter } from 'react-router'
 import { css } from '@emotion/core'
+import { Panel } from './Panel'
 
-export const Main = withRouter(props => {
-  const { location, boards, readme, showMenu } = props
+export const Main = props => {
+  const { readme, showMenu, currentItem } = props
 
   // Let's show stuff when `showMenu` is set
   // To prevent from content flashing
@@ -12,12 +11,13 @@ export const Main = withRouter(props => {
     return null
   }
 
-  const query = querystring.parse(location.search.slice(1))
-  const item = findItem(boards, query)
-  if (item) {
+  if (currentItem) {
     return (
       <div css={styles.main}>
-        <item.options.component />
+        <div css={styles.component}>
+          <currentItem.options.component />
+        </div>
+        <Panel panel={{ code: currentItem.options.code }} />
       </div>
     )
   }
@@ -30,44 +30,29 @@ export const Main = withRouter(props => {
     )
 
   return <div css={styles.main}>{readmeComponent}</div>
-})
-
-const findItem = (boards, query) => {
-  let board
-  let item
-
-  // Find matched board
-  for (let i = 0; i < boards.length; i++) {
-    if (query.board && query.board === boards[i].title) {
-      board = boards[i]
-    } else if (!query.board) {
-      board = boards[0]
-    }
-  }
-
-  for (let i = 0; i < board.sections.length; i++) {
-    const section = board.sections[i]
-    if (section.title === query.section) {
-      for (let i = 0; i < section.items.length; i++) {
-        if (section.items[i].title === query.item) {
-          item = section.items[i]
-          break
-        }
-      }
-    }
-  }
-
-  return item
 }
 
 const styles = {
   main: css`
-    padding: 10px;
-    margin-left: 0;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
     margin-top: var(--header-height);
     @media (min-width: 992px) {
       margin-top: 0;
-      margin-left: var(--sidebar-width);
+      left: var(--sidebar-width);
+      width: calc(100% - var(--sidebar-width));
     }
+  `,
+  component: css`
+    padding: 10px;
+    height: calc(100% - var(--panel-height));
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
   `
 }
