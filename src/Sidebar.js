@@ -96,6 +96,7 @@ const styles = {
     width: 100%;
     background: var(--sidebar-bg);
     border-right: 1px solid var(--border-color);
+    z-index: 1000;
     @media (min-width: 992px) {
       width: var(--sidebar-width);
     }

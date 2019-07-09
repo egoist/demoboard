@@ -84,7 +84,8 @@ const styles = {
     cursor: pointer;
     user-select: none;
     text-decoration: none;
-    color: inherit;
+    color: #999;
+    font-weight: 500;
 
     & svg {
       width: 1em;
@@ -94,7 +95,7 @@ const styles = {
     }
 
     &:hover {
-      background-color: #f0f0f0;
+      color: inherit;
     }
   `,
   itemTitle: css`
@@ -105,10 +106,13 @@ const styles = {
     color: inherit;
 
     &:hover {
-      background-color: var(--menu-item-hover-bg);
+      color: var(--menu-item-active-color);
     }
   `,
   itemTitleActive: css`
-    background-color: var(--menu-item-active-bg) !important;
+    color: var(--menu-item-active-color) !important;
+    &:hover {
+      text-decoration: underline !important;
+    }
   `
 }
