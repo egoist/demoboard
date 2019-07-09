@@ -61,7 +61,14 @@ export const Panel = withRouter(({ panel, location }) => {
           )
         })}
       </div>
-      {tabs.map(tab => tab.active && <tab.content key={tab.name} />)}
+      {tabs.map(
+        tab =>
+          tab.active && (
+            <div key={tab.name} css={styles.content}>
+              <tab.content />
+            </div>
+          )
+      )}
     </div>
   )
 })
@@ -94,6 +101,13 @@ const styles = {
   `,
   code: css`
     margin: 0;
+    font-family: var(--font-code);
+    white-space: pre-wrap;
+    word-break: normal;
+    font-size: 0.875rem;
+  `,
+  content: css`
+    overflow: auto;
     padding: 10px;
   `
 }

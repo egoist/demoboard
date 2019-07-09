@@ -31,6 +31,8 @@ export const App = withRouter(({ boards, options, location }) => {
             --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
               'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
               'Helvetica Neue', sans-serif;
+            --font-code: SFMono-Regular, Consolas, Liberation Mono, Menlo,
+              Courier, monospace;
             --header-height: 50px;
             --border-color: #e6e6e6;
             --menu-item-active-color: #0088cc;

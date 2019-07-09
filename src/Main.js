@@ -39,21 +39,22 @@ const styles = {
     width: 100%;
     top: 0;
     left: 0;
-    margin-top: var(--header-height);
-    padding: 10px;
     @media (min-width: 992px) {
-      margin-top: 0;
       left: var(--sidebar-width);
       width: calc(100% - var(--sidebar-width));
     }
   `,
   component: css`
     padding: 10px;
+    padding-top: var(--header-height);
     height: calc(100% - var(--panel-height));
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     overflow: auto;
+    @media (min-width: 992px) {
+      padding-top: 10px;
+    }
   `
 }
