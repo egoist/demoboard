@@ -41,7 +41,7 @@
     "highlight.js": "^9.15.8",
     "husky": "^3.0.0",
     "lint-staged": "^9.1.0",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^9.0.0",
     "markdown-it-anchor": "^5.2.4",
     "markdown-it-loader": "^0.7.0",
     "markdown-loader": "^5.0.0",
