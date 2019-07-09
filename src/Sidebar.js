@@ -59,7 +59,7 @@ export const Sidebar = ({ title, boards, showMenu, setShowMenu, isWide }) => {
           {menuIcon}
 
           <h1 css={styles.siteTitle}>
-            <Link to="/">{title || 'Demoboard'}</Link>
+            <Link to="/">{title}</Link>
           </h1>
         </div>
       </div>

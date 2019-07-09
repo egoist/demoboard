@@ -14,6 +14,8 @@ export const App = withRouter(({ boards, options, location }) => {
   const query = querystring.parse(location.search.slice(1))
   const currentItem = findItems(boards, query)
 
+  const { title = 'Demoboard' } = options
+
   return (
     <div>
       <Global
@@ -41,7 +43,7 @@ export const App = withRouter(({ boards, options, location }) => {
         `}
       />
       <Sidebar
-        title={options.title}
+        title={title}
         boards={boards}
         showMenu={showMenu}
         setShowMenu={setShowMenu}
@@ -49,6 +51,8 @@ export const App = withRouter(({ boards, options, location }) => {
       />
       <Main
         currentItem={currentItem}
+        title={title}
+        boards={boards}
         readme={options.readme}
         showMenu={showMenu}
       />
