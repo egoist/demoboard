@@ -40,6 +40,7 @@ const styles = {
     top: 0;
     left: 0;
     margin-top: var(--header-height);
+    padding: 10px;
     @media (min-width: 992px) {
       margin-top: 0;
       left: var(--sidebar-width);
