@@ -16,6 +16,11 @@ export const App = withRouter(({ boards, options, location }) => {
 
   const { title = 'Demoboard' } = options
 
+  const pageTitle = currentItem ? `${currentItem.title} - ${title}` : title
+  React.useEffect(() => {
+    document.title = pageTitle
+  }, [pageTitle])
+
   return (
     <div>
       <Global
@@ -51,7 +56,6 @@ export const App = withRouter(({ boards, options, location }) => {
       />
       <Main
         currentItem={currentItem}
-        title={title}
         boards={boards}
         readme={options.readme}
         showMenu={showMenu}
