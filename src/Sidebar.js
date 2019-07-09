@@ -109,6 +109,7 @@ const styles = {
     width: var(--sidebar-width);
     background: var(--sidebar-bg);
     border-right: 1px solid var(--border-color);
+    z-index: 1000;
   `,
   headerLeft: css`
     display: flex;
