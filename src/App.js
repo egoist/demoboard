@@ -9,6 +9,8 @@ export const App = ({ boards, options }) => {
   const [isWide] = useMedia('(min-width:992px)', null)
   const [showMenu, setShowMenu] = useMedia('(min-width:992px)', null)
 
+  const { title = 'Demoboard' } = options
+
   return (
     <div>
       <Global
@@ -36,13 +38,18 @@ export const App = ({ boards, options }) => {
         `}
       />
       <Sidebar
-        title={options.title}
+        title={title}
         boards={boards}
         showMenu={showMenu}
         setShowMenu={setShowMenu}
         isWide={isWide}
       />
-      <Main boards={boards} readme={options.readme} showMenu={showMenu} />
+      <Main
+        title={title}
+        boards={boards}
+        readme={options.readme}
+        showMenu={showMenu}
+      />
     </div>
   )
 }

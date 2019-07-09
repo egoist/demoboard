@@ -4,7 +4,7 @@ import { withRouter } from 'react-router'
 import { css } from '@emotion/core'
 
 export const Main = withRouter(props => {
-  const { location, boards, readme, showMenu } = props
+  const { location, boards, readme, showMenu, title } = props
 
   // Let's show stuff when `showMenu` is set
   // To prevent from content flashing
@@ -14,6 +14,12 @@ export const Main = withRouter(props => {
 
   const query = querystring.parse(location.search.slice(1))
   const item = findItem(boards, query)
+
+  const pageTitle = item ? `${item.title} - ${title}` : title
+  React.useEffect(() => {
+    document.title = pageTitle
+  }, [pageTitle])
+
   if (item) {
     return (
       <div css={styles.main}>
