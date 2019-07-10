@@ -26,6 +26,7 @@ export const App = withRouter(({ boards, options, location }) => {
       <Global
         styles={css`
           :root {
+            --theme-color: #0088cc;
             --sidebar-width: 280px;
             --sidebar-bg: #f7f7f7;
             --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
@@ -37,6 +38,7 @@ export const App = withRouter(({ boards, options, location }) => {
             --border-color: #e6e6e6;
             --menu-item-active-color: #0088cc;
             --panel-height: 300px;
+            --panel-title-bg: transparent;
           }
 
           * {

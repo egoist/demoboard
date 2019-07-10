@@ -26,7 +26,10 @@ demoboard.section('Lists').add('Unordered List', {
   code: `<ul>
   <li>First item</li>
   <li>Second item</li>
-</ul>`
+</ul>`,
+  readme: `
+  \`ul\` tag is used for unordered lists.
+  `
 })
 
 mount(demoboard, '#app', {
