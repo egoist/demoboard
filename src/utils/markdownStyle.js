@@ -28,6 +28,7 @@ export const markdownStyle = css`
     border-radius: 3px;
     padding: 3px 5px;
     font-size: 0.875rem;
+    font-family: var(--font-code);
   }
 
   & h1,

@@ -9,11 +9,12 @@
 - [Install](#install)
 - [Basic Usage](#basic-usage)
 - [Guide](#guide)
-  - [React Components](#react-components)
-  - [Vue Components](#vue-components)
-  - [Customize Homepage](#customize-homepage)
-  - [Customize Site Title](#customize-site-title)
-  - [Display Source Code](#display-source-code)
+  * [React Components](#react-components)
+  * [Vue Components](#vue-components)
+  * [Customize Homepage](#customize-homepage)
+  * [Customize Site Title](#customize-site-title)
+  * [Display Source Code](#display-source-code)
+  * [Display README of each demo](#display-readme-of-each-demo)
 - [Contributing](#contributing)
 - [Author](#author)
 
@@ -89,7 +90,7 @@ mount(demoboard, '#app', {
 })
 ```
 
-`readme` can be an HTML string or a React component.
+`readme` should be a Markdown string.
 
 ### Customize Site Title
 
@@ -116,6 +117,17 @@ demoboard.section('Buttons')
     codeLang: 'js'
   })
 ```
+
+### Display README of each demo
+
+```js
+demoboard.section('Buttons').add('Danger Button', {
+  component: () => <Button type="Danger">Danger Button</Button>,
+  readme: `Used to trigger a dangerous operation.`
+})
+```
+
+`readme` should be a Markdown string.
 
 ## Contributing
 

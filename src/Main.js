@@ -28,14 +28,9 @@ export const Main = props => {
     )
   }
 
-  const readmeComponent =
-    typeof readme === 'function'
-      ? React.createElement(readme, null)
-      : createMarkdown(readme)
-
   return (
     <div css={styles.main}>
-      <div css={styles.readme}>{readmeComponent}</div>
+      {readme && <div css={styles.readme}>{createMarkdown(readme)}</div>}
     </div>
   )
 }
