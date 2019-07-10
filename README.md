@@ -9,12 +9,12 @@
 - [Install](#install)
 - [Basic Usage](#basic-usage)
 - [Guide](#guide)
-  * [React Components](#react-components)
-  * [Vue Components](#vue-components)
-  * [Customize Homepage](#customize-homepage)
-  * [Customize Site Title](#customize-site-title)
-  * [Display Source Code](#display-source-code)
-  * [Display README of each demo](#display-readme-of-each-demo)
+  - [React Components](#react-components)
+  - [Vue Components](#vue-components)
+  - [Customize Homepage](#customize-homepage)
+  - [Customize Site Title](#customize-site-title)
+  - [Display Source Code](#display-source-code)
+  - [Display README for Each Demo](#display-readme-for-each-demo)
 - [Contributing](#contributing)
 - [Author](#author)
 
@@ -118,7 +118,7 @@ demoboard.section('Buttons')
   })
 ```
 
-### Display README of each demo
+### Display README for Each Demo
 
 ```js
 demoboard.section('Buttons').add('Danger Button', {
