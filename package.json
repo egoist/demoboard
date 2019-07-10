@@ -27,8 +27,10 @@
     "prism-react-renderer": "^0.1.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-markdown": "^4.1.0",
     "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "slugo": "^0.2.3"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",
@@ -37,14 +39,8 @@
     "eslint-config-rem": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.14.2",
-    "github-markdown-css": "^3.0.1",
-    "highlight.js": "^9.15.8",
     "husky": "^3.0.0",
     "lint-staged": "^9.1.0",
-    "markdown-it": "^8.4.2",
-    "markdown-it-anchor": "^5.2.4",
-    "markdown-it-loader": "^0.7.0",
-    "markdown-loader": "^5.0.0",
     "markdown-toc": "^1.2.0",
     "poi": "^12.7.1-canary.585.f015dbf.0",
     "prettier": "^1.15.2",
@@ -66,7 +62,9 @@
       "unicorn/filename-case": "off",
       "react/prop-types": "off",
       "react/display-name": "off",
-      "import/no-unassigned-import": "off"
+      "import/no-unassigned-import": "off",
+      "import/no-webpack-loader-syntax": "off",
+      "unicorn/no-abusive-eslint-disable": "off"
     }
   },
   "husky": {

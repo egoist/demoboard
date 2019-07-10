@@ -47,6 +47,10 @@ export const App = withRouter(({ boards, options, location }) => {
             margin: 0;
             font-family: var(--font-sans);
           }
+
+          img {
+            max-width: 100%;
+          }
         `}
       />
       <Sidebar

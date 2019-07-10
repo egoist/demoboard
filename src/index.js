@@ -66,3 +66,4 @@ function mount(_boards, target, options) {
 }
 
 export { create, mount }
+export { CodeBlock } from './CodeBlock'

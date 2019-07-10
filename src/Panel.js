@@ -3,36 +3,14 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
-import Highlight, { defaultProps } from 'prism-react-renderer'
-import prismTheme from 'prism-react-renderer/themes/nightOwlLight'
-
-prismTheme.plain.backgroundColor = '#fff'
+import { CodeBlock } from './CodeBlock'
 
 export const Panel = withRouter(({ panel, location }) => {
   const query = querystring.parse(location.search.slice(1))
   const tabs = [
     {
       name: 'code',
-      content: () => (
-        <Highlight
-          {...defaultProps}
-          theme={prismTheme}
-          code={panel.code}
-          language={panel.codeLang || 'js'}
-        >
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre css={styles.code} className={className} style={style}>
-              {tokens.map((line, i) => (
-                <div {...getLineProps({ line })} key={i}>
-                  {line.map((token, key) => (
-                    <span {...getTokenProps({ token })} key={key} />
-                  ))}
-                </div>
-              ))}
-            </pre>
-          )}
-        </Highlight>
-      )
+      content: () => <CodeBlock language={panel.codeLang} value={panel.code} />
     }
   ]
     .filter(tab => tab.content)
@@ -81,6 +59,10 @@ const styles = {
     left: 0;
     width: 100%;
     border-top: 1px solid var(--border-color);
+
+    @media (min-width: 992px) {
+      padding-left: var(--sidebar-width);
+    }
   `,
   tabHeader: css`
     height: 30px;
@@ -98,13 +80,6 @@ const styles = {
   `,
   tabTitleActive: css`
     color: inherit !important;
-  `,
-  code: css`
-    margin: 0;
-    font-family: var(--font-code);
-    white-space: pre-wrap;
-    word-break: normal;
-    font-size: 0.875rem;
   `,
   content: css`
     overflow: auto;
