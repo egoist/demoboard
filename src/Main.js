@@ -38,6 +38,7 @@ export const Main = props => {
 
   return (
     <div css={styles.main}>
+      <style>{`.css-${styles.readme.name} >*:first-child {margin-top:0}`}</style>
       <div css={styles.readme}>{readmeComponent}</div>
     </div>
   )
@@ -77,11 +78,7 @@ const styles = {
       padding: 10px 20px;
     }
 
-    & > *:first-of-type {
-      margin-top: 0;
-    }
-
-    & > *:last-of-type {
+    & > *:last-child {
       margin-bottom: 0;
     }
 
@@ -108,8 +105,19 @@ const styles = {
       font-size: 0.875rem;
     }
 
+    & h1,
+    & h2,
+    & h3,
+    & h4,
+    & h5 {
+      font-weight: 500;
+    }
+
     & h1 {
       font-size: 32px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.3em;
+      margin-bottom: 20px;
     }
 
     & h2 {
