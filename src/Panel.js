@@ -96,5 +96,6 @@ const styles = {
   content: css`
     overflow: auto;
     padding: 10px;
+    height: calc(100% - 30px);
   `
 }
