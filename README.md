@@ -14,6 +14,7 @@
   - [Customize Homepage](#customize-homepage)
   - [Customize Site Title](#customize-site-title)
   - [Display Source Code](#display-source-code)
+  - [Display README for Each Demo](#display-readme-for-each-demo)
 - [Contributing](#contributing)
 - [Author](#author)
 
@@ -89,7 +90,7 @@ mount(demoboard, '#app', {
 })
 ```
 
-`readme` can be an HTML string or a React component.
+`readme` should be a Markdown string.
 
 ### Customize Site Title
 
@@ -116,6 +117,17 @@ demoboard.section('Buttons')
     codeLang: 'js'
   })
 ```
+
+### Display README for Each Demo
+
+```js
+demoboard.section('Buttons').add('Danger Button', {
+  component: () => <Button type="Danger">Danger Button</Button>,
+  readme: `Used to trigger a dangerous operation.`
+})
+```
+
+`readme` should be a Markdown string.
 
 ## Contributing
 

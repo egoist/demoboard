@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { App } from './App'
+import { createMarkdown } from './utils/createMarkdown'
 
 const uid = () =>
   Math.random()
@@ -66,3 +67,6 @@ function mount(_boards, target, options) {
 }
 
 export { create, mount }
+export { CodeBlock } from './CodeBlock'
+
+export const Markdown = ({ source }) => createMarkdown(source)
