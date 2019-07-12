@@ -1,6 +1,6 @@
 {
   "name": "demoboard",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Demonstrating your React/Vue components with ease.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
