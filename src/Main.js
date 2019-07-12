@@ -13,17 +13,17 @@ export const Main = props => {
   }
 
   if (currentItem) {
+    const panel = {
+      code: currentItem.options.code,
+      readme: currentItem.options.readme
+    }
+    const hasPanel = panel.code || panel.readme
     return (
       <div css={styles.main}>
-        <div css={styles.component}>
+        <div css={styles.component({ hasPanel })}>
           <currentItem.options.component />
         </div>
-        <Panel
-          panel={{
-            code: currentItem.options.code,
-            readme: currentItem.options.readme
-          }}
-        />
+        {hasPanel && <Panel panel={panel} />}
       </div>
     )
   }
@@ -47,9 +47,9 @@ const styles = {
       top: 0;
     }
   `,
-  component: css`
+  component: ({ hasPanel }) => css`
     padding: 10px;
-    height: calc(100% - var(--panel-height));
+    height: ${hasPanel ? `calc(100% - var(--panel-height))` : `100%`};
     position: absolute;
     top: 0;
     left: 0;
@@ -57,7 +57,7 @@ const styles = {
     overflow: auto;
 
     @media (min-width: 992px) {
-      padding: 10px calc(var(--sidebar-width) + 10px);
+      padding-left: calc(var(--sidebar-width) + 10px);
     }
   `,
   readme: css`
