@@ -4,7 +4,7 @@ import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { css } from '@emotion/core'
 
-export const Board = withRouter(({ board, location, keyword }) => {
+export const Board = withRouter(({ board, location, keyword, hideMenu }) => {
   const query = querystring.parse(location.search.slice(1))
   const [closedSections, setClosedSections] = React.useState([])
   const toggleSection = id => {
@@ -52,6 +52,7 @@ export const Board = withRouter(({ board, location, keyword }) => {
                         styles.itemTitle,
                         href === currentHref && styles.itemTitleActive
                       ]}
+                      onClick={hideMenu}
                       key={item.id}
                       to={`?${href}`}
                     >

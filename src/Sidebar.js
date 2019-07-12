@@ -18,8 +18,10 @@ export const Sidebar = ({ title, boards, showMenu, setShowMenu, isWide }) => {
     setKeyword(e.target.value)
   }
 
+  const hideMenu = () => !isWide && setShowMenu(false)
+
   const Boards = boards.map((board, index) => (
-    <Board key={index} board={board} keyword={keyword} />
+    <Board key={index} board={board} keyword={keyword} hideMenu={hideMenu} />
   ))
 
   const menuIcon = isWide ? null : showMenu ? (
@@ -58,7 +60,7 @@ export const Sidebar = ({ title, boards, showMenu, setShowMenu, isWide }) => {
         <div css={styles.headerLeft}>
           {menuIcon}
 
-          <h1 css={styles.siteTitle}>
+          <h1 css={styles.siteTitle} onClick={hideMenu}>
             <Link to="/">{title}</Link>
           </h1>
         </div>
