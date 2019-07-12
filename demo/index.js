@@ -32,6 +32,10 @@ demoboard.section('Lists').add('Unordered List', {
   `
 })
 
+demoboard.section('Other').add('Blockquote', {
+  component: () => <blockquote>lorem</blockquote>
+})
+
 mount(demoboard, '#app', {
   readme
 })
