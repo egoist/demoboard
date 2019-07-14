@@ -2,6 +2,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'react-router-dom'
 import { Board } from './Board'
+import { Resizebar } from './Resizebar'
 
 export const Sidebar = ({ title, boards, showMenu, setShowMenu, isWide }) => {
   if (showMenu === null) {
@@ -52,6 +53,14 @@ export const Sidebar = ({ title, boards, showMenu, setShowMenu, isWide }) => {
     </svg>
   )
 
+  const resizeBar = isWide ? (
+    <Resizebar
+      axis={'x'}
+      rootSelector={'--sidebar-width'}
+      bounds={{ min: 160, max: window.outerWidth - 480 }}
+    ></Resizebar>
+  ) : null
+
   return (
     <div css={styles.sidebar}>
       <div css={styles.header}>
@@ -65,6 +74,7 @@ export const Sidebar = ({ title, boards, showMenu, setShowMenu, isWide }) => {
       </div>
       {showMenu && (
         <div css={styles.menu}>
+          {resizeBar}
           <div css={styles.searchWrapper}>
             <input
               css={styles.search}
