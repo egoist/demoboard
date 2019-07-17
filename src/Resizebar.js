@@ -23,7 +23,13 @@ export const Resizebar = ({ axis, rootSelector, bounds }) => {
     )
   }
 
-  return <div css={styles[axis]} onMouseDown={dragstart}></div>
+  return (
+    <div
+      css={styles[axis]}
+      onMouseDown={dragstart}
+      onTouchStart={dragstart}
+    ></div>
+  )
 }
 
 const styles = {
