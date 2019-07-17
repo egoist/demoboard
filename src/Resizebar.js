@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 
 export const Resizebar = ({ axis, rootSelector, bounds }) => {
-  const checkX = e => {
+  const checkPosition = e => {
     const barPosition = axis === 'x' ? e.pageX : window.innerHeight - e.pageY
 
     if (bounds && (bounds.min >= barPosition || bounds.max <= barPosition))
@@ -13,9 +13,13 @@ export const Resizebar = ({ axis, rootSelector, bounds }) => {
 
   const dragstart = e => {
     e.preventDefault()
-    window.addEventListener('mousemove', checkX)
+    window.addEventListener('mousemove', checkPosition)
     window.addEventListener('mouseup', () =>
-      window.removeEventListener('mousemove', checkX)
+      window.removeEventListener('mousemove', checkPosition)
+    )
+    window.addEventListener('touchmove', checkPosition)
+    window.addEventListener('touchend', () =>
+      window.removeEventListener('touchmove', checkPosition)
     )
   }
 
