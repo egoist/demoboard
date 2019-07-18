@@ -59,7 +59,13 @@ export const Sidebar = ({ title, boards, showMenu, setShowMenu, isWide }) => {
       rootSelector={'--sidebar-width'}
       bounds={{ min: 160, max: window.outerWidth - 480 }}
     ></Resizebar>
-  ) : null
+  ) : (
+    <Resizebar
+      axis={'x'}
+      rootSelector={'--sidebar-width'}
+      bounds={{ min: 100, max: window.outerWidth - 80 }}
+    ></Resizebar>
+  )
 
   return (
     <div css={styles.sidebar}>
