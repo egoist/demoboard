@@ -3,6 +3,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
+import { Resizebar } from './Resizebar'
 import { CodeBlock } from './CodeBlock'
 import { createMarkdown } from './utils/createMarkdown'
 
@@ -30,8 +31,18 @@ export const Panel = withRouter(({ panel, location }) => {
 
       return tab
     })
+
+  const resizeBar = (
+    <Resizebar
+      axis={'y'}
+      rootSelector={'--panel-height'}
+      bounds={{ min: 160, max: window.innerHeight - 160 }}
+    ></Resizebar>
+  )
+
   return (
     <div css={styles.panel}>
+      {resizeBar}
       <div css={styles.tabHeader}>
         {tabs.map(tab => {
           const href = `?${querystring.stringify({ ...query, tab: tab.name })}`

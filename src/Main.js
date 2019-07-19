@@ -42,6 +42,7 @@ const styles = {
     left: 0;
     bottom: 0;
     width: 100%;
+    overflow-x: hidden;
     @media (min-width: 992px) {
       padding-left: var(--sidebar-width);
       top: 0;
