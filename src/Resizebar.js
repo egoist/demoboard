@@ -3,6 +3,8 @@ import { css } from '@emotion/core'
 
 export const Resizebar = ({ axis, rootSelector, bounds }) => {
   const checkPosition = e => {
+    if (e.touches) e = e.touches[0]
+
     const barPosition = axis === 'x' ? e.pageX : window.innerHeight - e.pageY
 
     if (bounds && (bounds.min >= barPosition || bounds.max <= barPosition))
@@ -11,8 +13,7 @@ export const Resizebar = ({ axis, rootSelector, bounds }) => {
     document.documentElement.style.setProperty(rootSelector, barPosition + 'px')
   }
 
-  const dragstart = e => {
-    e.preventDefault()
+  const dragstart = () => {
     window.addEventListener('mousemove', checkPosition)
     window.addEventListener('mouseup', () =>
       window.removeEventListener('mousemove', checkPosition)
@@ -35,14 +36,14 @@ export const Resizebar = ({ axis, rootSelector, bounds }) => {
 const styles = {
   x: css`
     height: 100vh;
-    width: 5px;
+    width: 10px;
     position: absolute;
     bottom: 0;
     right: -5px;
     cursor: ew-resize;
   `,
   y: css`
-    height: 5px;
+    height: 10px;
     width: 100%;
     position: absolute;
     top: -5px;
