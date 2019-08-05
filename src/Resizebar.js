@@ -14,14 +14,29 @@ export const Resizebar = ({ axis, rootSelector, bounds }) => {
   }
 
   const dragstart = () => {
+    document.body.style = `
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    `
     window.addEventListener('mousemove', checkPosition)
-    window.addEventListener('mouseup', () =>
+    window.addEventListener('mouseup', () => {
       window.removeEventListener('mousemove', checkPosition)
-    )
+      dragend()
+    })
     window.addEventListener('touchmove', checkPosition)
-    window.addEventListener('touchend', () =>
+    window.addEventListener('touchend', () => {
       window.removeEventListener('touchmove', checkPosition)
-    )
+      dragend()
+    })
+  }
+
+  const dragend = () => {
+    document.body.style = `
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+    `
   }
 
   return (
