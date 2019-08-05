@@ -14,14 +14,22 @@ export const Resizebar = ({ axis, rootSelector, bounds }) => {
   }
 
   const dragstart = () => {
+    document.onselectstart = () => false
+
     window.addEventListener('mousemove', checkPosition)
-    window.addEventListener('mouseup', () =>
+    window.addEventListener('mouseup', () => {
       window.removeEventListener('mousemove', checkPosition)
-    )
+      dragend()
+    })
     window.addEventListener('touchmove', checkPosition)
-    window.addEventListener('touchend', () =>
+    window.addEventListener('touchend', () => {
       window.removeEventListener('touchmove', checkPosition)
-    )
+      dragend()
+    })
+  }
+
+  const dragend = () => {
+    document.onselectstart = () => true
   }
 
   return (
