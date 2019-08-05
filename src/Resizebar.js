@@ -14,11 +14,8 @@ export const Resizebar = ({ axis, rootSelector, bounds }) => {
   }
 
   const dragstart = () => {
-    document.body.style = `
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-    `
+    document.onselectstart = () => false
+
     window.addEventListener('mousemove', checkPosition)
     window.addEventListener('mouseup', () => {
       window.removeEventListener('mousemove', checkPosition)
@@ -32,11 +29,7 @@ export const Resizebar = ({ axis, rootSelector, bounds }) => {
   }
 
   const dragend = () => {
-    document.body.style = `
-      -webkit-user-select: text;
-      -moz-user-select: text;
-      -ms-user-select: text;
-    `
+    document.onselectstart = () => true
   }
 
   return (
