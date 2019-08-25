@@ -71,6 +71,8 @@ export const Board = withRouter(({ board, location, keyword, hideMenu }) => {
 const styles = {
   board: css`
     font-size: 0.9rem;
+    max-height: calc(100% - 90px);
+    overflow: auto;
     &:not(:last-child) {
       border-bottom: 1px solid #e2e2e2;
       padding-bottom: 30px;

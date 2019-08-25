@@ -37,5 +37,24 @@ demoboard.section('Other').add('Blockquote', {
 })
 
 mount(demoboard, '#app', {
-  readme
+  readme,
+  title: 'With Social Links',
+  socialLinks: [
+    {
+      type: 'github',
+      url: 'https://github.com/egoist/demoboard'
+    },
+    {
+      type: 'twitter',
+      url: 'https://twitter.com/github'
+    },
+    {
+      type: 'donate',
+      url: 'https://www.patreon.com/egoist'
+    },
+    {
+      type: 'custom',
+      url: 'https://www.google.com'
+    }
+  ]
 })
