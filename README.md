@@ -69,8 +69,13 @@ Just convert your Vue component into React component with [@egoist/vue-to-react]
 import toReact from '@egoist/vue-to-react'
 import Button from './Button.vue'
 
+demoboard.addDecorator(item => {
+  const Component = item.options.component
+  item.options.component = toReact(Component)
+})
+
 demoboard.section('Buttons').add('Primary Button', {
-  component: toReact(Button)
+  component: Button
 })
 ```
 

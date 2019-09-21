@@ -5,6 +5,15 @@ import readme from '!raw-loader!../README.md'
 
 const demoboard = create()
 
+demoboard.addDecorator(item => {
+  const Component = item.options.component
+  item.options.component = () => (
+    <div style={{ border: '1px solid #e2e2e2', padding: '30px' }}>
+      <Component />
+    </div>
+  )
+})
+
 demoboard
   .section('Buttons')
   .add('Primary Button', {

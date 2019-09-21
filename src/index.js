@@ -13,6 +13,7 @@ class Demoboard {
   constructor() {
     this.id = uid()
     this.sections = []
+    this.decorators = []
   }
 
   /**
@@ -22,6 +23,21 @@ class Demoboard {
     const section = new Section(title, options)
     this.sections.push(section)
     return section
+  }
+
+  addDecorator(decorator) {
+    this.decorators.push(decorator)
+    return this
+  }
+
+  applyDecorators(item) {
+    if (this.decorators.length === 0) {
+      return item
+    }
+
+    const newItem = { ...item, options: { ...item.options } }
+    this.decorators.forEach(deco => deco(newItem, this))
+    return newItem
   }
 }
 

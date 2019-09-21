@@ -23,5 +23,5 @@ export const findItems = (boards, query) => {
     }
   }
 
-  return item
+  return item && board.applyDecorators(item)
 }
