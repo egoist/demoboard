@@ -14,7 +14,7 @@ export const App = withRouter(({ boards, options, location }) => {
   const query = querystring.parse(location.search.slice(1))
   const currentItem = findItems(boards, query)
 
-  const { title = 'Demoboard' } = options
+  const { title = 'Demoboard', socialLinks = null } = options
 
   const pageTitle = currentItem ? `${currentItem.title} - ${title}` : title
   React.useEffect(() => {
@@ -61,6 +61,7 @@ export const App = withRouter(({ boards, options, location }) => {
         showMenu={showMenu}
         setShowMenu={setShowMenu}
         isWide={isWide}
+        socialLinks={socialLinks}
       />
       <Main
         currentItem={currentItem}

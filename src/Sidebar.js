@@ -3,8 +3,16 @@ import { css } from '@emotion/core'
 import { Link } from 'react-router-dom'
 import { Board } from './Board'
 import { Resizebar } from './Resizebar'
+import { SocialLinks } from './SocialLinks'
 
-export const Sidebar = ({ title, boards, showMenu, setShowMenu, isWide }) => {
+export const Sidebar = ({
+  title,
+  boards,
+  showMenu,
+  setShowMenu,
+  isWide,
+  socialLinks
+}) => {
   if (showMenu === null) {
     return null
   }
@@ -92,6 +100,7 @@ export const Sidebar = ({ title, boards, showMenu, setShowMenu, isWide }) => {
             />
           </div>
           {Boards}
+          {socialLinks && <SocialLinks links={socialLinks}></SocialLinks>}
         </div>
       )}
     </div>
