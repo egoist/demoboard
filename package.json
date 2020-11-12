@@ -33,7 +33,7 @@
     "slugo": "^0.2.3"
   },
   "devDependencies": {
-    "@emotion/babel-preset-css-prop": "^10.0.14",
+    "@emotion/babel-preset-css-prop": "^11.0.0",
     "bili": "^4.8.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-rem": "^4.0.0",
