@@ -25,7 +25,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "prism-react-renderer": "^0.1.7",
-    "react": "^16.8.6",
+    "react": "^17.0.1",
     "react-dom": "^16.8.6",
     "react-markdown": "^4.1.0",
     "react-router": "^5.0.1",
