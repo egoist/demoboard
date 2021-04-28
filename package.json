@@ -35,7 +35,7 @@
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "bili": "^4.8.0",
-    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-rem": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.14.2",
